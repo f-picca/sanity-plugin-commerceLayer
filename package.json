@@ -1,0 +1,75 @@
+{
+  "name": "sanity-plugin-commerceLayerPlugin",
+  "version": "1.0.0",
+  "description": "A plugin to add commerce features to Sanity Studio thanks to Commerce Layer integration",
+  "keywords": [
+    "sanity",
+    "sanity-plugin"
+  ],
+  "homepage": "https://github.com/f-picca/sanity-plugin-commerceLayer#readme",
+  "bugs": {
+    "url": "https://github.com/f-picca/sanity-plugin-commerceLayer/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/f-picca/sanity-plugin-commerceLayer.git"
+  },
+  "license": "MIT",
+  "author": "Fabrizio Picca <fabrizio@commercelayer.io>",
+  "sideEffects": false,
+  "type": "commonjs",
+  "exports": {
+    ".": {
+      "source": "./src/index.ts",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "sanity.json",
+    "src",
+    "v2-incompatible.js"
+  ],
+  "scripts": {
+    "build": "plugin-kit verify-package --silent && pkg-utils build --strict --check --clean",
+    "format": "prettier --write --cache --ignore-unknown .",
+    "link-watch": "plugin-kit link-watch",
+    "lint": "eslint .",
+    "prepublishOnly": "npm run build",
+    "watch": "pkg-utils watch --strict"
+  },
+  "dependencies": {
+    "@sanity/incompatible-plugin": "^1.0.5"
+  },
+  "devDependencies": {
+    "@sanity/pkg-utils": "^7.0.2",
+    "@sanity/plugin-kit": "^4.0.19",
+    "@types/react": "^19.0.7",
+    "@typescript-eslint/eslint-plugin": "^8.21.0",
+    "@typescript-eslint/parser": "^8.21.0",
+    "eslint": "^8.57.1",
+    "eslint-config-prettier": "^10.0.1",
+    "eslint-config-sanity": "^7.1.4",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-react": "^7.37.4",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "prettier": "^3.4.2",
+    "prettier-plugin-packagejson": "^2.5.8",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "sanity": "^3.70.0",
+    "styled-components": "^6.1.14",
+    "typescript": "^5.7.3"
+  },
+  "peerDependencies": {
+    "react": "^18",
+    "sanity": "^3"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
