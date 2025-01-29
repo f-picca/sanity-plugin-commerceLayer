@@ -1,5 +1,5 @@
 {
-  "name": "sanity-plugin-commerceLayerPlugin",
+  "name": "sanity-plugin-commercelayerplugin",
   "version": "1.0.0",
   "description": "A plugin to add commerce features to Sanity Studio thanks to Commerce Layer integration",
   "keywords": [
@@ -12,7 +12,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/f-picca/sanity-plugin-commerceLayer.git"
+    "url": "https://github.com/f-picca/sanity-plugin-commerceLayer.git"
   },
   "license": "MIT",
   "author": "Fabrizio Picca <fabrizio@commercelayer.io>",
@@ -43,7 +43,12 @@
     "watch": "pkg-utils watch --strict"
   },
   "dependencies": {
-    "@sanity/incompatible-plugin": "^1.0.5"
+    "@commercelayer/js-auth": "^6.7.0",
+    "@commercelayer/sdk": "^6.29.0",
+    "@sanity/incompatible-plugin": "^1.0.5",
+    "@sanity/ui": "^2.11.4",
+    "sanity-plugin-internationalized-array": "^3.1.1",
+    "sanity-plugin-markdown": "^5.0.0"
   },
   "devDependencies": {
     "@sanity/pkg-utils": "^7.0.2",
@@ -59,9 +64,9 @@
     "eslint-plugin-react-hooks": "^5.1.0",
     "prettier": "^3.4.2",
     "prettier-plugin-packagejson": "^2.5.8",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "sanity": "^3.70.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "sanity": "^3.71.1",
     "styled-components": "^6.1.14",
     "typescript": "^5.7.3"
   },
@@ -71,5 +76,14 @@
   },
   "engines": {
     "node": ">=18"
+  },
+  "sanityPlugin": {
+    "verifyPackage": {
+      "tsc": false
+    },
+    "linkWatch": {
+      "command": "npm run watch",
+      "extensions": "ts,tsx,jsx,js,png,svg,gif,jpeg,css"
+    }
   }
 }

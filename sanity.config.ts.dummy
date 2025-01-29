@@ -1,0 +1,19 @@
+/**
+ * NOTE: This is a dummy Sanity configuration in order
+ * to generate TypeScript typings for the Shopify plugin.
+ */
+import { defineConfig } from "sanity";
+
+import { schemaTypes } from "./src/schemaTypes";
+
+const projectId = "my-project";
+const dataset = "my-dataset";
+
+export default defineConfig({
+  name: "default",
+  dataset: dataset,
+  projectId: projectId,
+  schema: {
+    types: schemaTypes,
+  },
+});
