@@ -1,25 +1,25 @@
-import { defineField, defineType } from "sanity";
+import {defineField, defineType} from 'sanity'
 
 export const shippingCategoryType = defineType({
-  type: "document",
-  name: "shippingCategory",
-  title: "Shipping Category",
-  description: "",
+  type: 'document',
+  name: 'shippingCategory',
+  title: 'Shipping Category',
+  description: '',
   fields: [
     defineField({
-      name: "code",
-      type: "string",
-      title: "Code",
+      name: 'code',
+      type: 'string',
+      title: 'Code',
       hidden: false,
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "name",
-      type: "string",
-      title: "Name",
+      name: 'name',
+      type: 'string',
+      title: 'Name',
       hidden: false,
       validation: (Rule) => Rule.required(),
     }),
   ],
-  preview: { select: { title: "name" } },
-});
+  preview: {select: {title: 'name'}},
+})

@@ -15,448 +15,448 @@
 
 // Source: schema.json
 export type SanityImagePaletteSwatch = {
-  _type: "sanity.imagePaletteSwatch";
-  background?: string;
-  foreground?: string;
-  population?: number;
-  title?: string;
-};
+  _type: 'sanity.imagePaletteSwatch'
+  background?: string
+  foreground?: string
+  population?: number
+  title?: string
+}
 
 export type SanityImagePalette = {
-  _type: "sanity.imagePalette";
-  darkMuted?: SanityImagePaletteSwatch;
-  lightVibrant?: SanityImagePaletteSwatch;
-  darkVibrant?: SanityImagePaletteSwatch;
-  vibrant?: SanityImagePaletteSwatch;
-  dominant?: SanityImagePaletteSwatch;
-  lightMuted?: SanityImagePaletteSwatch;
-  muted?: SanityImagePaletteSwatch;
-};
+  _type: 'sanity.imagePalette'
+  darkMuted?: SanityImagePaletteSwatch
+  lightVibrant?: SanityImagePaletteSwatch
+  darkVibrant?: SanityImagePaletteSwatch
+  vibrant?: SanityImagePaletteSwatch
+  dominant?: SanityImagePaletteSwatch
+  lightMuted?: SanityImagePaletteSwatch
+  muted?: SanityImagePaletteSwatch
+}
 
 export type SanityImageDimensions = {
-  _type: "sanity.imageDimensions";
-  height?: number;
-  width?: number;
-  aspectRatio?: number;
-};
+  _type: 'sanity.imageDimensions'
+  height?: number
+  width?: number
+  aspectRatio?: number
+}
 
 export type SanityFileAsset = {
-  _id: string;
-  _type: "sanity.fileAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  originalFilename?: string;
-  label?: string;
-  title?: string;
-  description?: string;
-  altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
-  uploadId?: string;
-  path?: string;
-  url?: string;
-  source?: SanityAssetSourceData;
-};
+  _id: string
+  _type: 'sanity.fileAsset'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  originalFilename?: string
+  label?: string
+  title?: string
+  description?: string
+  altText?: string
+  sha1hash?: string
+  extension?: string
+  mimeType?: string
+  size?: number
+  assetId?: string
+  uploadId?: string
+  path?: string
+  url?: string
+  source?: SanityAssetSourceData
+}
 
 export type Geopoint = {
-  _type: "geopoint";
-  lat?: number;
-  lng?: number;
-  alt?: number;
-};
+  _type: 'geopoint'
+  lat?: number
+  lng?: number
+  alt?: number
+}
 
 export type Slug = {
-  _type: "slug";
-  current?: string;
-  source?: string;
-};
+  _type: 'slug'
+  current?: string
+  source?: string
+}
 
 export type Taxonomy = {
-  _id: string;
-  _type: "taxonomy";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  id?: string;
-  name?: string;
-  facetKey?: string;
+  _id: string
+  _type: 'taxonomy'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  id?: string
+  name?: string
+  facetKey?: string
   taxons?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "taxon";
-  }>;
-};
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    _key: string
+    [internalGroqTypeReferenceTo]?: 'taxon'
+  }>
+}
 
 export type Taxon = {
-  _id: string;
-  _type: "taxon";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  id?: string;
+  _id: string
+  _type: 'taxon'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  id?: string
   label?: Array<
     {
-      _key: string;
+      _key: string
     } & InternationalizedArrayStringValue
-  >;
+  >
   description?: Array<
     {
-      _key: string;
+      _key: string
     } & InternationalizedArrayTextValue
-  >;
-  slug?: string;
-  name?: string;
+  >
+  slug?: string
+  name?: string
   references?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "product";
-  }>;
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    _key: string
+    [internalGroqTypeReferenceTo]?: 'product'
+  }>
   taxons?: Array<{
-    _ref: string;
-    _type: "reference";
-    _weak?: boolean;
-    _key: string;
-    [internalGroqTypeReferenceTo]?: "taxon";
-  }>;
-};
+    _ref: string
+    _type: 'reference'
+    _weak?: boolean
+    _key: string
+    [internalGroqTypeReferenceTo]?: 'taxon'
+  }>
+}
 
 export type Sku = {
-  _id: string;
-  _type: "sku";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  code?: string;
-  slug?: string;
-  size?: string;
-  shippingCategory: Reference;
-  commerceLayerId?: string;
-};
+  _id: string
+  _type: 'sku'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  code?: string
+  slug?: string
+  size?: string
+  shippingCategory: Reference
+  commerceLayerId?: string
+}
 
-export type Reference = never;
+export type Reference = never
 
 export type ShippingCategory = {
-  _id: string;
-  _type: "shippingCategory";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  code?: string;
-  name?: string;
-};
+  _id: string
+  _type: 'shippingCategory'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  code?: string
+  name?: string
+}
 
 export type ProductGridComponent = {
-  _id: string;
-  _type: "productGridComponent";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  id?: string;
-  title?: string;
-  skus?: Array<string>;
-};
+  _id: string
+  _type: 'productGridComponent'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  id?: string
+  title?: string
+  skus?: Array<string>
+}
 
 export type Product = {
-  _id: string;
-  _type: "product";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
+  _id: string
+  _type: 'product'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
   name?: Array<
     {
-      _key: string;
+      _key: string
     } & InternationalizedArrayStringValue
-  >;
-  code?: string;
-  baseProductId?: string;
+  >
+  code?: string
+  baseProductId?: string
   description?: Array<
     {
-      _key: string;
+      _key: string
     } & InternationalizedArrayStringValue
-  >;
+  >
   images?: Array<{
-    asset?: Reference;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-    _key: string;
-  }>;
+    asset?: Reference
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+    _key: string
+  }>
   skus?: Array<
     {
-      _key: string;
+      _key: string
     } & Reference
-  >;
-};
+  >
+}
 
 export type Organization = {
-  _id: string;
-  _type: "organization";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?: string;
-  faviconUrl?: string;
-  logoUrl?: string;
-  primaryColor?: string;
-  manifest?: string;
-};
+  _id: string
+  _type: 'organization'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name?: string
+  faviconUrl?: string
+  logoUrl?: string
+  primaryColor?: string
+  manifest?: string
+}
 
 export type MarkdownComponent = {
-  _id: string;
-  _type: "markdownComponent";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  id?: string;
-  content?: string;
-};
+  _id: string
+  _type: 'markdownComponent'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  id?: string
+  content?: string
+}
 
 export type LocalizedPage = {
-  _id: string;
-  _type: "localizedPage";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  slug?: string;
+  _id: string
+  _type: 'localizedPage'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  slug?: string
   localizedPages?: Array<
     {
-      _key: string;
+      _key: string
     } & InternationalizedArrayLocalizedPagesValue
-  >;
-};
+  >
+}
 
 export type Language = {
-  _id: string;
-  _type: "language";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?: string;
-  code?: string;
-  catalog?: Reference;
-};
+  _id: string
+  _type: 'language'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name?: string
+  code?: string
+  catalog?: Reference
+}
 
 export type HeroComponent = {
-  _id: string;
-  _type: "heroComponent";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  id?: string;
+  _id: string
+  _type: 'heroComponent'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  id?: string
   image?: {
-    asset?: Reference;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
-  title?: string;
-  description?: string;
-  href?: string;
-};
+    asset?: Reference
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  title?: string
+  description?: string
+  href?: string
+}
 
 export type GridItem = {
-  _id: string;
-  _type: "gridItem";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  title?: string;
-  description?: string;
+  _id: string
+  _type: 'gridItem'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  title?: string
+  description?: string
   image?: {
-    asset?: Reference;
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    _type: "image";
-  };
-  linkLabel?: string;
-  linkHref?: string;
-};
+    asset?: Reference
+    hotspot?: SanityImageHotspot
+    crop?: SanityImageCrop
+    _type: 'image'
+  }
+  linkLabel?: string
+  linkHref?: string
+}
 
 export type SanityImageCrop = {
-  _type: "sanity.imageCrop";
-  top?: number;
-  bottom?: number;
-  left?: number;
-  right?: number;
-};
+  _type: 'sanity.imageCrop'
+  top?: number
+  bottom?: number
+  left?: number
+  right?: number
+}
 
 export type SanityImageHotspot = {
-  _type: "sanity.imageHotspot";
-  x?: number;
-  y?: number;
-  height?: number;
-  width?: number;
-};
+  _type: 'sanity.imageHotspot'
+  x?: number
+  y?: number
+  height?: number
+  width?: number
+}
 
 export type SanityImageAsset = {
-  _id: string;
-  _type: "sanity.imageAsset";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  originalFilename?: string;
-  label?: string;
-  title?: string;
-  description?: string;
-  altText?: string;
-  sha1hash?: string;
-  extension?: string;
-  mimeType?: string;
-  size?: number;
-  assetId?: string;
-  uploadId?: string;
-  path?: string;
-  url?: string;
-  metadata?: SanityImageMetadata;
-  source?: SanityAssetSourceData;
-};
+  _id: string
+  _type: 'sanity.imageAsset'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  originalFilename?: string
+  label?: string
+  title?: string
+  description?: string
+  altText?: string
+  sha1hash?: string
+  extension?: string
+  mimeType?: string
+  size?: number
+  assetId?: string
+  uploadId?: string
+  path?: string
+  url?: string
+  metadata?: SanityImageMetadata
+  source?: SanityAssetSourceData
+}
 
 export type SanityAssetSourceData = {
-  _type: "sanity.assetSourceData";
-  name?: string;
-  id?: string;
-  url?: string;
-};
+  _type: 'sanity.assetSourceData'
+  name?: string
+  id?: string
+  url?: string
+}
 
 export type SanityImageMetadata = {
-  _type: "sanity.imageMetadata";
-  location?: Geopoint;
-  dimensions?: SanityImageDimensions;
-  palette?: SanityImagePalette;
-  lqip?: string;
-  blurHash?: string;
-  hasAlpha?: boolean;
-  isOpaque?: boolean;
-};
+  _type: 'sanity.imageMetadata'
+  location?: Geopoint
+  dimensions?: SanityImageDimensions
+  palette?: SanityImagePalette
+  lqip?: string
+  blurHash?: string
+  hasAlpha?: boolean
+  isOpaque?: boolean
+}
 
 export type GridComponent = {
-  _id: string;
-  _type: "gridComponent";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  id?: string;
+  _id: string
+  _type: 'gridComponent'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  id?: string
   items?: Array<
     {
-      _key: string;
+      _key: string
     } & Reference
-  >;
-};
+  >
+}
 
 export type Country = {
-  _id: string;
-  _type: "country";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?: string;
-  code?: string;
-  market?: number;
-  catalog?: Reference;
-  region?: Reference;
+  _id: string
+  _type: 'country'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name?: string
+  code?: string
+  market?: number
+  catalog?: Reference
+  region?: Reference
   languages?: Array<
     {
-      _key: string;
+      _key: string
     } & Reference
-  >;
-};
+  >
+}
 
 export type Region = {
-  _id: string;
-  _type: "region";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  name?: string;
-};
+  _id: string
+  _type: 'region'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  name?: string
+}
 
 export type Catalog = {
-  _id: string;
-  _type: "catalog";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  id?: string;
-  name?: string;
+  _id: string
+  _type: 'catalog'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  id?: string
+  name?: string
   taxonomies?: Array<
     {
-      _key: string;
+      _key: string
     } & Reference
-  >;
-};
+  >
+}
 
 export type CarouselComponent = {
-  _id: string;
-  _type: "carouselComponent";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  id?: string;
+  _id: string
+  _type: 'carouselComponent'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  id?: string
   slides?: Array<
     {
-      _key: string;
+      _key: string
     } & Reference
-  >;
-};
+  >
+}
 
 export type InternationalizedArrayLocalizedPagesValue = {
-  _type: "internationalizedArrayLocalizedPagesValue";
-  value?: Reference;
-};
+  _type: 'internationalizedArrayLocalizedPagesValue'
+  value?: Reference
+}
 
 export type Page = {
-  _id: string;
-  _type: "page";
-  _createdAt: string;
-  _updatedAt: string;
-  _rev: string;
-  displayName?: string;
-  title?: string;
-  description?: string;
+  _id: string
+  _type: 'page'
+  _createdAt: string
+  _updatedAt: string
+  _rev: string
+  displayName?: string
+  title?: string
+  description?: string
   components?: Array<
     {
-      _key: string;
+      _key: string
     } & Reference
-  >;
-};
+  >
+}
 
 export type InternationalizedArrayTextValue = {
-  _type: "internationalizedArrayTextValue";
-  value?: string;
-};
+  _type: 'internationalizedArrayTextValue'
+  value?: string
+}
 
 export type InternationalizedArrayStringValue = {
-  _type: "internationalizedArrayStringValue";
-  value?: string;
-};
+  _type: 'internationalizedArrayStringValue'
+  value?: string
+}
 
 export type InternationalizedArrayLocalizedPages = Array<
   {
-    _key: string;
+    _key: string
   } & InternationalizedArrayLocalizedPagesValue
->;
+>
 
 export type InternationalizedArrayText = Array<
   {
-    _key: string;
+    _key: string
   } & InternationalizedArrayTextValue
->;
+>
 
 export type InternationalizedArrayString = Array<
   {
-    _key: string;
+    _key: string
   } & InternationalizedArrayStringValue
->;
+>
 
-export type Markdown = string;
+export type Markdown = string
 
 export type AllSanitySchemaTypes =
   | SanityImagePaletteSwatch
@@ -495,5 +495,5 @@ export type AllSanitySchemaTypes =
   | InternationalizedArrayLocalizedPages
   | InternationalizedArrayText
   | InternationalizedArrayString
-  | Markdown;
-export declare const internalGroqTypeReferenceTo: unique symbol;
+  | Markdown
+export declare const internalGroqTypeReferenceTo: unique symbol

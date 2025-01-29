@@ -1,5 +1,5 @@
 {
-  "name": "sanity-plugin-commercelayerplugin",
+  "name": "sanity-plugin-commercelayer",
   "version": "1.0.0",
   "description": "A plugin to add commerce features to Sanity Studio thanks to Commerce Layer integration",
   "keywords": [

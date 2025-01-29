@@ -1,33 +1,33 @@
-import { defineField, defineType } from "sanity";
+import {defineField, defineType} from 'sanity'
 
 export const catalogType = defineType({
-  type: "document",
-  name: "catalog",
-  title: "Catalog",
-  description: "",
+  type: 'document',
+  name: 'catalog',
+  title: 'Catalog',
+  description: '',
   fields: [
     defineField({
-      name: "id",
-      type: "string",
-      title: "id",
+      name: 'id',
+      type: 'string',
+      title: 'id',
       hidden: false,
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "name",
-      type: "string",
-      title: "name",
+      name: 'name',
+      type: 'string',
+      title: 'name',
       hidden: false,
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "taxonomies",
-      type: "array",
-      of: [{ type: "reference", to: [{ type: "taxonomy" }] }],
-      title: "taxonomies",
+      name: 'taxonomies',
+      type: 'array',
+      of: [{type: 'reference', to: [{type: 'taxonomy'}]}],
+      title: 'taxonomies',
       hidden: false,
       validation: (Rule) => Rule.required(),
     }),
   ],
-  preview: { select: { title: "name" } },
-});
+  preview: {select: {title: 'name'}},
+})

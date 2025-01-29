@@ -1,25 +1,25 @@
-import { defineField, defineType } from "sanity";
+import {defineField, defineType} from 'sanity'
 
 export const productGridComponentType = defineType({
-  type: "document",
-  name: "productGridComponent",
-  title: "Product Grid Component",
-  description: "",
+  type: 'document',
+  name: 'productGridComponent',
+  title: 'Product Grid Component',
+  description: '',
   fields: [
-    defineField({ name: "id", type: "string", title: "id", hidden: false }),
+    defineField({name: 'id', type: 'string', title: 'id', hidden: false}),
     defineField({
-      name: "title",
-      type: "string",
-      title: "title",
+      name: 'title',
+      type: 'string',
+      title: 'title',
       hidden: false,
     }),
     defineField({
-      name: "skus",
-      type: "array",
-      of: [{ type: "string" }],
-      title: "skus",
+      name: 'skus',
+      type: 'array',
+      of: [{type: 'string'}],
+      title: 'skus',
       hidden: false,
     }),
   ],
-  preview: { select: { title: "title" } },
-});
+  preview: {select: {title: 'title'}},
+})

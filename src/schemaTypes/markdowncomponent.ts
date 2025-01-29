@@ -1,18 +1,18 @@
-import { defineField, defineType } from "sanity";
+import {defineField, defineType} from 'sanity'
 
 export const markdownComponentType = defineType({
-  type: "document",
-  name: "markdownComponent",
-  title: "Markdown Component",
-  description: "",
+  type: 'document',
+  name: 'markdownComponent',
+  title: 'Markdown Component',
+  description: '',
   fields: [
-    defineField({ name: "id", type: "string", title: "id", hidden: false }),
+    defineField({name: 'id', type: 'string', title: 'id', hidden: false}),
     defineField({
-      name: "content",
-      type: "markdown",
-      title: "content",
+      name: 'content',
+      type: 'markdown',
+      title: 'content',
       hidden: false,
     }),
   ],
-  preview: { select: { title: "id" } },
-});
+  preview: {select: {title: 'id'}},
+})

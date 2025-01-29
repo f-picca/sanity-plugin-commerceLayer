@@ -1,18 +1,18 @@
-import { defineField, defineType } from "sanity";
+import {defineField, defineType} from 'sanity'
 
 export const regionType = defineType({
-  type: "document",
-  name: "region",
-  title: "Region",
-  description: "",
+  type: 'document',
+  name: 'region',
+  title: 'Region',
+  description: '',
   fields: [
     defineField({
-      name: "name",
-      type: "string",
-      title: "name",
+      name: 'name',
+      type: 'string',
+      title: 'name',
       hidden: false,
       validation: (Rule) => Rule.required(),
     }),
   ],
-  preview: { select: { title: "name" } },
-});
+  preview: {select: {title: 'name'}},
+})
