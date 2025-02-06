@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
 /* eslint-disable camelcase */
 import {authenticate} from '@commercelayer/js-auth'
-import CommerceLayer, {Sku as ClSku, ListResponse, ShippingCategory} from '@commercelayer/sdk'
+import CommerceLayer, {ListResponse, ShippingCategory, Sku as ClSku} from '@commercelayer/sdk'
 
 import {Product, Sku} from '../sanity.types'
 
@@ -57,14 +57,24 @@ type SyncResult = {
 /*
  * upsert sku to Commerce Layer
  */
-export const syncSku = async (_sku: any | null, product: Product): Promise<SyncResult> => {
+export const syncSku = async (
+  _sku: any | null,
+  product: Product | undefined,
+): Promise<SyncResult> => {
   if (!_sku) throw new Error('missing Sanity SKU')
 
   const cl = getClClient(await getToken())
 
-  const languageEntry = product.name!.find((entry) => entry._key === 'en')
-  const productName = languageEntry ? languageEntry.value : 'Unnamed Product'
+  let productName
 
+  if (product) {
+    //sku is assigned to a product
+    const languageEntry = product.name!.find((entry) => entry._key === 'en')
+    productName = languageEntry ? languageEntry.value : 'Unnamed Product'
+  } else {
+    //sku is stadalone
+    productName = _sku.code
+  }
   // First, check if SKU exists
   const result = await cl.skus.list({filters: {code_eq: _sku.code!}})
 

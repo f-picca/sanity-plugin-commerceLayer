@@ -5,7 +5,7 @@ import React, {useEffect, useState} from 'react'
 import {getClSkuDashboardLink, getSkuCommerceData, SkuCommerceData} from '../commercelayer'
 
 export default function CommerceDataPane({props}): React.JSX.Element {
-  const [skuCommerceData, setSkuCommerceData] = useState<SkuCommerceData | null>(null)
+  const [skuCommerceData, setSkuCommerceData] = useState<SkuCommerceData | null | undefined>(null)
   const [error, setError] = useState<string | null>(null)
 
   const openSkuInCommerceLayer = () => {
@@ -18,18 +18,13 @@ export default function CommerceDataPane({props}): React.JSX.Element {
   }
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await getSkuCommerceData(props.value.commerceLayerId)
-        if (result) setSkuCommerceData(result)
-      } catch (err) {
+    getSkuCommerceData(props.value.commerceLayerId)
+      .then((result) => setSkuCommerceData(result))
+      .catch((err) => {
         setError(`Failed to fetch SKU Commerce Data:${err}`)
         return props.renderDefault(props)
-      }
-    }
-
-    fetchData()
-  }, [props, props.value.commerceLayerId])
+      })
+  }, [props.value.commerceLayerId])
 
   if (!props.value.commerceLayerId || props.value?.commerceLayerId.trim() === '')
     return props.renderDefault(props)
@@ -40,6 +35,10 @@ export default function CommerceDataPane({props}): React.JSX.Element {
         <Text>Error: {error}</Text>
       </Stack>
     )
+  }
+
+  if (skuCommerceData === null || skuCommerceData === undefined) {
+    return props.renderDefault(props)
   }
 
   return (

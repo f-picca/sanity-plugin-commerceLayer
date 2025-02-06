@@ -37,37 +37,46 @@ export const CreateSkuSyncAfterPublishAction = (
         if (originalResult && typeof originalResult.onHandle === 'function') {
           originalResult.onHandle()
         }
-        const publishedSku = (
-          await client.fetch(
-            `*[_id == $documentId]{
+
+        if (draft) {
+          const draftSku = (
+            await client.fetch(
+              `*[_id == $documentId]{
               ...,
               shippingCategory->{
                 code,
                 name
               }
             }`,
-            {
-              documentId: context.documentId,
-            },
-          )
-        )[0]
+              {
+                documentId: draft._id,
+              },
+            )
+          )[0]
 
-        const result = await syncSku(publishedSku, product)
-        if (result.success) {
-          if (result.sku.commerceLayerId)
-            client
-              .patch(context.documentId!)
-              .set({commerceLayerId: result.sku.commerceLayerId})
-              .commit()
-          toast.push({
-            status: 'success',
-            title: `${result.sku.code} ${(result.operation as string).toUpperCase()}`,
-            description: `operation was succesful`,
-          })
+          const result = await syncSku(draftSku, product)
+          if (result.success) {
+            if (result.sku.commerceLayerId)
+              client
+                .patch(context.documentId!)
+                .set({commerceLayerId: result.sku.commerceLayerId})
+                .commit()
+            toast.push({
+              status: 'success',
+              title: `${result.sku.code} ${(result.operation as string).toUpperCase()}`,
+              description: `operation was succesful`,
+            })
+          } else {
+            toast.push({
+              status: 'error',
+              title: `${result.sku.code} ${(result.operation as string).toUpperCase()}`,
+              description: `operation failed`,
+            })
+          }
         } else {
           toast.push({
             status: 'error',
-            title: `${result.sku.code} ${(result.operation as string).toUpperCase()}`,
+            title: `draft not found`,
             description: `operation failed`,
           })
         }

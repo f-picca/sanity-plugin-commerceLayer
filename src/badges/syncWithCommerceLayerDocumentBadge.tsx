@@ -1,7 +1,7 @@
 import {DocumentBadgeDescription} from 'sanity'
 
 export function SyncWithCommerceLayerDocumentBadge(props): DocumentBadgeDescription {
-  if (props.published.commerceLayerId) {
+  if (props.published && props.published.commerceLayerId) {
     return {
       label: 'SYNCHED WITH CL',
       title: 'This SKU is synchronized with a SKU in Commerce Layer',
