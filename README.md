@@ -1,4 +1,4 @@
-# sanity-plugin-commerceLayerPlugin
+# sanity-plugin-commercelayer
 
 > This is a **Sanity Studio v3** plugin that integrates Commerce Layer features into Sanity Studio.
 
